@@ -1,165 +1,483 @@
-export default function AportesIngenieriaEstructural() {
-  const areas = [
-    { titulo: "Estructuras de Madera", descripcion: "Aportes sobre propiedades, comportamiento, diseño y notas técnicas.", items: ["Notas", "Publicaciones", "PDFs", "Ejemplos"] },
-    { titulo: "Construcción en Acero", descripcion: "Elementos, conexiones, estabilidad y criterios de diseño.", items: ["Posts", "Esquemas", "Apuntes", "Recursos"] },
-    { titulo: "Estructuras de Concreto", descripcion: "Conceptos, ejemplos y diseño de elementos de concreto.", items: ["Resúmenes", "Detalles", "Ejemplos", "Bibliografía"] },
-    { titulo: "BIM", descripcion: "Modelado, coordinación y flujos de trabajo BIM.", items: ["Modelos", "Flujos", "Capturas", "Casos"] },
-    { titulo: "Análisis Estructural", descripcion: "Conceptos, métodos y ejemplos de análisis.", items: ["Notas", "Ejercicios", "Gráficos"] },
-    { titulo: "Mecánica de Suelos", descripcion: "Propiedades, ensayos y aplicaciones geotécnicas.", items: ["Apuntes", "Casos", "Tablas"] },
-    { titulo: "Dinámica Estructural", descripcion: "Respuesta dinámica, vibraciones y sismo.", items: ["Conceptos", "Ejemplos", "Gráficos"] },
-    { titulo: "Puentes y Obras de Arte", descripcion: "Tipologías, detalles y criterios de diseño.", items: ["Casos", "Detalles", "Referencias"] },
-    { titulo: "Estructuras Hidráulicas", descripcion: "Reservorios, canales y estructuras asociadas.", items: ["Proyectos", "Notas", "Esquemas"] },
-  ];
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aportes en Ingeniería Estructural</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-  const publicaciones = [
-    {
-      titulo: "¿Por qué diseñar con madera no es tan simple como parece?",
-      categoria: "Estructuras de Madera",
-      resumen: "La madera es un material altamente variable; sus propiedades dependen del tipo, densidad, humedad e imperfecciones naturales."
-    },
-    {
-      titulo: "¿Por qué la madera es un material tan complejo de diseñar estructuralmente?",
-      categoria: "Estructuras de Madera",
-      resumen: "El comportamiento estructural depende de factores como dirección de fibra, defectos, densidad, humedad y duración de la carga."
-    },
-    {
-      titulo: "Introducción a conexiones en acero",
-      categoria: "Construcción en Acero",
-      resumen: "Conceptos clave y criterios de revisión."
-    },
-    {
-      titulo: "Reservorio en Revit",
-      categoria: "BIM / Aplicación",
-      resumen: "Caso aplicado de modelado estructural."
-    },
-  ];
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b132b;
+      color: #f1f5f9;
+      line-height: 1.6;
+    }
 
-  return (
-    <div className="min-h-screen bg-[#0b132b] text-slate-100">
-      <header className="border-b border-slate-700 bg-[#0b132b]/90 backdrop-blur sticky top-0 z-20">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div>
-            <h1 className="text-xl md:text-2xl font-bold">Aportes en Ingeniería Estructural</h1>
-            <p className="text-sm text-slate-300">Biblioteca técnica personal</p>
-          </div>
-          <nav className="hidden md:flex gap-6 text-sm">
-            <a href="#inicio" className="hover:text-white">Inicio</a>
-            <a href="#areas" className="hover:text-white">Áreas</a>
-            <a href="#publicaciones" className="hover:text-white">Aportes</a>
-            <a href="#contacto" className="hover:text-white">Contacto</a>
-          </nav>
-        </div>
-      </header>
+    header {
+      background: #0b132b;
+      border-bottom: 1px solid #334155;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
 
-      <section id="inicio" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          <div>
-            <span className="inline-block rounded-full bg-[#1c2541] px-3 py-1 text-xs font-medium mb-4">
-              Ingeniería estructural · difusión técnica
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-              Un espacio para organizar y compartir aportes técnicos.
-            </h2>
-            <p className="mt-5 text-base md:text-lg text-slate-300 leading-7">
-              Ingeniera Civil (B.Sc.) con enfoque en ingeniería estructural, especialmente en análisis y diseño.
-              
-              He participado en experiencias académicas internacionales en Alemania, Estados Unidos y Noruega, lo que fortaleció mi interés por la ingeniería, la investigación y la colaboración global. Soy fundadora de una iniciativa estudiantil enfocada en ingeniería estructural y investigación.
-              
-              Cuento además con experiencia en la enseñanza de física y química, lo que me ha permitido desarrollar habilidades de comunicación y liderazgo.
-              
-              Estoy particularmente interesada en el diseño estructural, el análisis y el desarrollo de soluciones eficientes y sostenibles, con especial interés en promover estructuras de madera en el Perú y contribuir a una educación de calidad.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#areas" className="rounded-2xl px-5 py-3 bg-[#3a86ff] text-white text-sm font-medium shadow-sm hover:opacity-90">
-                Ver áreas
-              </a>
-              <a href="#publicaciones" className="rounded-2xl px-5 py-3 bg-[#1c2541] border border-slate-600 text-sm font-medium shadow-sm hover:bg-[#243b6b]">
-                Ver aportes
-              </a>
-            </div>
-          </div>
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-          <div className="grid gap-4">
-            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
-              <p className="text-sm text-slate-400">Enfoque</p>
-              <p className="text-lg font-semibold mt-1">Compartir y enseñar mediante contenido técnico</p>
-            </div>
-            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
-              <p className="text-sm text-slate-400">Contenido</p>
-              <p className="text-lg font-semibold mt-1">Posts, PDFs, recursos, gráficos y casos</p>
-            </div>
-            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
-              <p className="text-sm text-slate-400">Organización</p>
-              <p className="text-lg font-semibold mt-1">Por áreas de la ingeniería estructural</p>
-            </div>
-          </div>
-        </div>
-      </section>
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      gap: 20px;
+    }
 
-      <section id="areas" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-10">
-          <h3 className="text-3xl font-bold">Áreas</h3>
-          <p className="text-slate-300 mt-2">Cada área funciona como una biblioteca con contenido técnico organizado.</p>
-        </div>
+    .brand h1 {
+      margin: 0;
+      font-size: 28px;
+    }
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {areas.map((area) => (
-            <article key={area.titulo} className="bg-[#1c2541] rounded-3xl border border-slate-700 shadow-sm p-6">
-              <div className="rounded-2xl bg-[#0b132b] h-32 mb-5 flex items-center justify-center text-slate-500 text-sm">
-                Portada
-              </div>
-              <h4 className="text-2xl font-semibold">{area.titulo}</h4>
-              <p className="text-sm text-slate-300 mt-3 leading-6">{area.descripcion}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {area.items.map((item) => (
-                  <span key={item} className="text-xs bg-[#0b132b] border border-slate-600 rounded-full px-3 py-1">
-                    {item}
-                  </span>
-                ))}
-              </div>
-              <button className="mt-6 rounded-2xl px-4 py-2 bg-[#3a86ff] text-white text-sm">
-                Explorar área
-              </button>
-            </article>
-          ))}
-        </div>
-      </section>
+    .brand p {
+      margin: 4px 0 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
 
-      <section id="publicaciones" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="mb-10">
-          <h3 className="text-3xl font-bold">Aportes recientes</h3>
-          <p className="text-slate-300 mt-2">Publicaciones y material técnico organizado.</p>
-        </div>
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      margin-left: 18px;
+      font-size: 15px;
+    }
 
-        <div className="grid lg:grid-cols-3 gap-6">
-          {publicaciones.map((pub) => (
-            <article key={pub.titulo} className="bg-[#1c2541] rounded-3xl border border-slate-700 shadow-sm p-6">
-              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">{pub.categoria}</span>
-              <h4 className="text-xl font-semibold mt-2">{pub.titulo}</h4>
-              <p className="text-sm text-slate-300 mt-3 leading-6">{pub.resumen}</p>
-              <button className="mt-6 rounded-2xl px-4 py-2 border border-slate-600 text-sm">
-                Leer más
-              </button>
-            </article>
-          ))}
-        </div>
-      </section>
+    nav a:hover {
+      color: white;
+    }
 
-      <section id="contacto" className="max-w-6xl mx-auto px-6 py-16">
-        <div className="bg-[#1c2541] text-white rounded-[2rem] p-8 md:p-10 border border-slate-700">
-          <h3 className="text-3xl font-bold">Contacto</h3>
-          <p className="mt-3 text-slate-300 max-w-2xl leading-7">
-            Puedes colocar aquí tu correo, LinkedIn y GitHub.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-3 text-sm">
-            <a href="mailto:tucorreo@ejemplo.com" className="bg-white text-black rounded-2xl px-4 py-2 font-medium">
-              tucorreo@ejemplo.com
-            </a>
-            <a href="#" className="border border-slate-600 rounded-2xl px-4 py-2">LinkedIn</a>
-            <a href="#" className="border border-slate-600 rounded-2xl px-4 py-2">GitHub</a>
-          </div>
-        </div>
-      </section>
+    .hero {
+      padding: 70px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .pill {
+      display: inline-block;
+      background: #1c2541;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      line-height: 1.15;
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      font-size: 17px;
+    }
+
+    .buttons {
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-right: 12px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary {
+      background: #3a86ff;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #1c2541;
+      color: white;
+      border: 1px solid #475569;
+    }
+
+    .info-box {
+      background: #1c2541;
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
+
+    .info-box small {
+      color: #94a3b8;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .info-box strong {
+      font-size: 18px;
+    }
+
+    section {
+      padding: 40px 0 70px;
+    }
+
+    section h3 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: #cbd5e1;
+      margin-bottom: 28px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .posts-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: #1c2541;
+      border: 1px solid #334155;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .cover {
+      height: 120px;
+      border-radius: 18px;
+      background: #0f172a;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      font-size: 14px;
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+      font-size: 26px;
+    }
+
+    .card p {
+      color: #cbd5e1;
+      margin: 0 0 16px;
+    }
+
+    .tags {
+      margin-bottom: 16px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #0f172a;
+      border: 1px solid #475569;
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin: 4px 6px 0 0;
+      font-size: 12px;
+    }
+
+    .mini-label {
+      color: #94a3b8;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .contact-box {
+      background: #1c2541;
+      border: 1px solid #334155;
+      border-radius: 30px;
+      padding: 30px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border-radius: 14px;
+      text-decoration: none;
+      border: 1px solid #475569;
+      color: white;
+    }
+
+    .contact-links a.email {
+      background: white;
+      color: black;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 30px 20px 50px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .grid,
+      .posts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2 {
+        font-size: 36px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <h1>Aportes en Ingeniería Estructural</h1>
+        <p>Biblioteca técnica personal</p>
+      </div>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#areas">Áreas</a>
+        <a href="#aportes">Aportes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
     </div>
-  );
-}
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="pill">Ingeniería estructural · difusión técnica</span>
+          <h2>Un espacio para organizar y compartir aportes técnicos.</h2>
+          <p>
+            Ingeniera Civil (B.Sc.) con enfoque en ingeniería estructural, especialmente en análisis y diseño.
+          </p>
+          <p>
+            He participado en experiencias académicas internacionales en Alemania, Estados Unidos y Noruega, lo que fortaleció mi interés por la ingeniería, la investigación y la colaboración global. Soy fundadora de una iniciativa estudiantil enfocada en ingeniería estructural e investigación.
+          </p>
+          <p>
+            Cuento además con experiencia en la enseñanza de física y química, lo que me ha permitido desarrollar habilidades de comunicación y liderazgo.
+          </p>
+          <p>
+            Estoy particularmente interesada en el diseño estructural, el análisis y el desarrollo de soluciones eficientes y sostenibles, con especial interés en promover estructuras de madera en el Perú y contribuir a una educación de calidad.
+          </p>
+          <div class="buttons">
+            <a class="btn btn-primary" href="#areas">Ver áreas</a>
+            <a class="btn btn-secondary" href="#aportes">Ver aportes</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="info-box">
+            <small>Enfoque</small>
+            <strong>Compartir y enseñar mediante contenido técnico</strong>
+          </div>
+          <div class="info-box">
+            <small>Contenido</small>
+            <strong>Posts, PDFs, recursos, gráficos y casos</strong>
+          </div>
+          <div class="info-box">
+            <small>Organización</small>
+            <strong>Por áreas de la ingeniería estructural</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="areas">
+      <div class="container">
+        <h3>Áreas</h3>
+        <p class="section-subtitle">Cada área funciona como una biblioteca con contenido técnico organizado.</p>
+
+        <div class="grid">
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Estructuras de Madera</h4>
+            <p>Aportes sobre propiedades, comportamiento, diseño y notas técnicas.</p>
+            <div class="tags">
+              <span class="tag">Notas</span>
+              <span class="tag">Publicaciones</span>
+              <span class="tag">PDFs</span>
+              <span class="tag">Ejemplos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Construcción en Acero</h4>
+            <p>Elementos, conexiones, estabilidad y criterios de diseño.</p>
+            <div class="tags">
+              <span class="tag">Posts</span>
+              <span class="tag">Esquemas</span>
+              <span class="tag">Apuntes</span>
+              <span class="tag">Recursos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Estructuras de Concreto</h4>
+            <p>Conceptos, ejemplos y diseño de elementos de concreto.</p>
+            <div class="tags">
+              <span class="tag">Resúmenes</span>
+              <span class="tag">Detalles</span>
+              <span class="tag">Ejemplos</span>
+              <span class="tag">Bibliografía</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>BIM</h4>
+            <p>Modelado, coordinación y flujos de trabajo BIM.</p>
+            <div class="tags">
+              <span class="tag">Modelos</span>
+              <span class="tag">Flujos</span>
+              <span class="tag">Capturas</span>
+              <span class="tag">Casos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Análisis Estructural</h4>
+            <p>Conceptos, métodos y ejemplos de análisis.</p>
+            <div class="tags">
+              <span class="tag">Notas</span>
+              <span class="tag">Ejercicios</span>
+              <span class="tag">Gráficos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Mecánica de Suelos</h4>
+            <p>Propiedades, ensayos y aplicaciones geotécnicas.</p>
+            <div class="tags">
+              <span class="tag">Apuntes</span>
+              <span class="tag">Casos</span>
+              <span class="tag">Tablas</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Dinámica Estructural</h4>
+            <p>Respuesta dinámica, vibraciones y sismo.</p>
+            <div class="tags">
+              <span class="tag">Conceptos</span>
+              <span class="tag">Ejemplos</span>
+              <span class="tag">Gráficos</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Puentes y Obras de Arte</h4>
+            <p>Tipologías, detalles y criterios de diseño.</p>
+            <div class="tags">
+              <span class="tag">Casos</span>
+              <span class="tag">Detalles</span>
+              <span class="tag">Referencias</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="cover">Portada</div>
+            <h4>Estructuras Hidráulicas</h4>
+            <p>Reservorios, canales y estructuras asociadas.</p>
+            <div class="tags">
+              <span class="tag">Proyectos</span>
+              <span class="tag">Notas</span>
+              <span class="tag">Esquemas</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="aportes">
+      <div class="container">
+        <h3>Aportes recientes</h3>
+        <p class="section-subtitle">Publicaciones y material técnico organizado.</p>
+
+        <div class="posts-grid">
+          <article class="card">
+            <span class="mini-label">Estructuras de Madera</span>
+            <h4>¿Por qué diseñar con madera no es tan simple como parece?</h4>
+            <p>
+              La madera es un material altamente variable; sus propiedades dependen del tipo, densidad, humedad e imperfecciones naturales.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="mini-label">Estructuras de Madera</span>
+            <h4>¿Por qué la madera es un material tan complejo de diseñar estructuralmente?</h4>
+            <p>
+              El comportamiento estructural depende de factores como dirección de fibra, defectos, densidad, humedad y duración de la carga.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact-box">
+          <h3>Contacto</h3>
+          <p>Puedes colocar aquí tu correo, LinkedIn y GitHub.</p>
+          <div class="contact-links">
+            <a class="email" href="mailto:tucorreo@ejemplo.com">tucorreo@ejemplo.com</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Layley Delgado Paz. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
