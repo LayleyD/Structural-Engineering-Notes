@@ -1,96 +1,165 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>Aportes en Ingeniería Estructural</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f5f5;
-      color: #222;
-    }
-    header {
-      background: #111;
-      color: white;
-      padding: 30px;
-      text-align: center;
-    }
-    section {
-      padding: 40px;
-      max-width: 900px;
-      margin: auto;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    h2 {
-      margin-top: 0;
-    }
-    footer {
-      text-align: center;
-      padding: 30px;
-      font-size: 14px;
-      color: #555;
-    }
-  </style>
-</head>
+export default function AportesIngenieriaEstructural() {
+  const areas = [
+    { titulo: "Estructuras de Madera", descripcion: "Aportes sobre propiedades, comportamiento, diseño y notas técnicas.", items: ["Notas", "Publicaciones", "PDFs", "Ejemplos"] },
+    { titulo: "Construcción en Acero", descripcion: "Elementos, conexiones, estabilidad y criterios de diseño.", items: ["Posts", "Esquemas", "Apuntes", "Recursos"] },
+    { titulo: "Estructuras de Concreto", descripcion: "Conceptos, ejemplos y diseño de elementos de concreto.", items: ["Resúmenes", "Detalles", "Ejemplos", "Bibliografía"] },
+    { titulo: "BIM", descripcion: "Modelado, coordinación y flujos de trabajo BIM.", items: ["Modelos", "Flujos", "Capturas", "Casos"] },
+    { titulo: "Análisis Estructural", descripcion: "Conceptos, métodos y ejemplos de análisis.", items: ["Notas", "Ejercicios", "Gráficos"] },
+    { titulo: "Mecánica de Suelos", descripcion: "Propiedades, ensayos y aplicaciones geotécnicas.", items: ["Apuntes", "Casos", "Tablas"] },
+    { titulo: "Dinámica Estructural", descripcion: "Respuesta dinámica, vibraciones y sismo.", items: ["Conceptos", "Ejemplos", "Gráficos"] },
+    { titulo: "Puentes y Obras de Arte", descripcion: "Tipologías, detalles y criterios de diseño.", items: ["Casos", "Detalles", "Referencias"] },
+    { titulo: "Estructuras Hidráulicas", descripcion: "Reservorios, canales y estructuras asociadas.", items: ["Proyectos", "Notas", "Esquemas"] },
+  ];
 
-<body>
+  const publicaciones = [
+    {
+      titulo: "¿Por qué diseñar con madera no es tan simple como parece?",
+      categoria: "Estructuras de Madera",
+      resumen: "La madera es un material altamente variable; sus propiedades dependen del tipo, densidad, humedad e imperfecciones naturales."
+    },
+    {
+      titulo: "¿Por qué la madera es un material tan complejo de diseñar estructuralmente?",
+      categoria: "Estructuras de Madera",
+      resumen: "El comportamiento estructural depende de factores como dirección de fibra, defectos, densidad, humedad y duración de la carga."
+    },
+    {
+      titulo: "Introducción a conexiones en acero",
+      categoria: "Construcción en Acero",
+      resumen: "Conceptos clave y criterios de revisión."
+    },
+    {
+      titulo: "Reservorio en Revit",
+      categoria: "BIM / Aplicación",
+      resumen: "Caso aplicado de modelado estructural."
+    },
+  ];
 
-<header>
-  <h1>Aportes en Ingeniería Estructural</h1>
-  <p>Biblioteca técnica personal organizada por áreas</p>
-</header>
+  return (
+    <div className="min-h-screen bg-[#0b132b] text-slate-100">
+      <header className="border-b border-slate-700 bg-[#0b132b]/90 backdrop-blur sticky top-0 z-20">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div>
+            <h1 className="text-xl md:text-2xl font-bold">Aportes en Ingeniería Estructural</h1>
+            <p className="text-sm text-slate-300">Biblioteca técnica personal</p>
+          </div>
+          <nav className="hidden md:flex gap-6 text-sm">
+            <a href="#inicio" className="hover:text-white">Inicio</a>
+            <a href="#areas" className="hover:text-white">Áreas</a>
+            <a href="#publicaciones" className="hover:text-white">Aportes</a>
+            <a href="#contacto" className="hover:text-white">Contacto</a>
+          </nav>
+        </div>
+      </header>
 
-<section>
-  <h2>Áreas</h2>
+      <section id="inicio" className="max-w-6xl mx-auto px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <span className="inline-block rounded-full bg-[#1c2541] px-3 py-1 text-xs font-medium mb-4">
+              Ingeniería estructural · difusión técnica
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+              Un espacio para organizar y compartir aportes técnicos.
+            </h2>
+            <p className="mt-5 text-base md:text-lg text-slate-300 leading-7">
+              Ingeniera Civil (B.Sc.) con enfoque en ingeniería estructural, especialmente en análisis y diseño.
+              
+              He participado en experiencias académicas internacionales en Alemania, Estados Unidos y Noruega, lo que fortaleció mi interés por la ingeniería, la investigación y la colaboración global. Soy fundadora de una iniciativa estudiantil enfocada en ingeniería estructural y investigación.
+              
+              Cuento además con experiencia en la enseñanza de física y química, lo que me ha permitido desarrollar habilidades de comunicación y liderazgo.
+              
+              Estoy particularmente interesada en el diseño estructural, el análisis y el desarrollo de soluciones eficientes y sostenibles, con especial interés en promover estructuras de madera en el Perú y contribuir a una educación de calidad.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href="#areas" className="rounded-2xl px-5 py-3 bg-[#3a86ff] text-white text-sm font-medium shadow-sm hover:opacity-90">
+                Ver áreas
+              </a>
+              <a href="#publicaciones" className="rounded-2xl px-5 py-3 bg-[#1c2541] border border-slate-600 text-sm font-medium shadow-sm hover:bg-[#243b6b]">
+                Ver aportes
+              </a>
+            </div>
+          </div>
 
-  <div class="card">
-    <h3>Timber Structures</h3>
-    <p>Propiedades de la madera, comportamiento estructural, notas técnicas y publicaciones.</p>
-  </div>
+          <div className="grid gap-4">
+            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
+              <p className="text-sm text-slate-400">Enfoque</p>
+              <p className="text-lg font-semibold mt-1">Compartir y enseñar mediante contenido técnico</p>
+            </div>
+            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
+              <p className="text-sm text-slate-400">Contenido</p>
+              <p className="text-lg font-semibold mt-1">Posts, PDFs, recursos, gráficos y casos</p>
+            </div>
+            <div className="bg-[#1c2541] rounded-3xl p-6 shadow-sm border border-slate-700">
+              <p className="text-sm text-slate-400">Organización</p>
+              <p className="text-lg font-semibold mt-1">Por áreas de la ingeniería estructural</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <div class="card">
-    <h3>Steel Construction</h3>
-    <p>Elementos de acero, conexiones, estabilidad y criterios de diseño.</p>
-  </div>
+      <section id="areas" className="max-w-6xl mx-auto px-6 py-16">
+        <div className="mb-10">
+          <h3 className="text-3xl font-bold">Áreas</h3>
+          <p className="text-slate-300 mt-2">Cada área funciona como una biblioteca con contenido técnico organizado.</p>
+        </div>
 
-  <div class="card">
-    <h3>Concrete Structures</h3>
-    <p>Conceptos, ejemplos y diseño de elementos de concreto.</p>
-  </div>
+        <div className="grid md:grid-cols-2 gap-6">
+          {areas.map((area) => (
+            <article key={area.titulo} className="bg-[#1c2541] rounded-3xl border border-slate-700 shadow-sm p-6">
+              <div className="rounded-2xl bg-[#0b132b] h-32 mb-5 flex items-center justify-center text-slate-500 text-sm">
+                Portada
+              </div>
+              <h4 className="text-2xl font-semibold">{area.titulo}</h4>
+              <p className="text-sm text-slate-300 mt-3 leading-6">{area.descripcion}</p>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {area.items.map((item) => (
+                  <span key={item} className="text-xs bg-[#0b132b] border border-slate-600 rounded-full px-3 py-1">
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <button className="mt-6 rounded-2xl px-4 py-2 bg-[#3a86ff] text-white text-sm">
+                Explorar área
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
 
-  <div class="card">
-    <h3>BIM / Revit Structures</h3>
-    <p>Modelado estructural, flujos BIM y proyectos aplicados.</p>
-  </div>
+      <section id="publicaciones" className="max-w-6xl mx-auto px-6 py-16">
+        <div className="mb-10">
+          <h3 className="text-3xl font-bold">Aportes recientes</h3>
+          <p className="text-slate-300 mt-2">Publicaciones y material técnico organizado.</p>
+        </div>
 
-</section>
+        <div className="grid lg:grid-cols-3 gap-6">
+          {publicaciones.map((pub) => (
+            <article key={pub.titulo} className="bg-[#1c2541] rounded-3xl border border-slate-700 shadow-sm p-6">
+              <span className="text-xs font-medium text-slate-400 uppercase tracking-wide">{pub.categoria}</span>
+              <h4 className="text-xl font-semibold mt-2">{pub.titulo}</h4>
+              <p className="text-sm text-slate-300 mt-3 leading-6">{pub.resumen}</p>
+              <button className="mt-6 rounded-2xl px-4 py-2 border border-slate-600 text-sm">
+                Leer más
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
 
-<section>
-  <h2>Aportes recientes</h2>
-
-  <div class="card">
-    <h3>Structural Properties of Wood</h3>
-    <p>Notas sobre dirección de fibra, humedad, densidad y duración de carga.</p>
-  </div>
-
-  <div class="card">
-    <h3>Reservorio en Revit Structures</h3>
-    <p>Ejemplo aplicado de modelado estructural en entorno BIM.</p>
-  </div>
-
-</section>
-
-<footer>
-  © 2026 Layley Delgado Paz <br>
-  Todos los derechos reservados.
-</footer>
-
-</body>
-</html>
+      <section id="contacto" className="max-w-6xl mx-auto px-6 py-16">
+        <div className="bg-[#1c2541] text-white rounded-[2rem] p-8 md:p-10 border border-slate-700">
+          <h3 className="text-3xl font-bold">Contacto</h3>
+          <p className="mt-3 text-slate-300 max-w-2xl leading-7">
+            Puedes colocar aquí tu correo, LinkedIn y GitHub.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3 text-sm">
+            <a href="mailto:tucorreo@ejemplo.com" className="bg-white text-black rounded-2xl px-4 py-2 font-medium">
+              tucorreo@ejemplo.com
+            </a>
+            <a href="#" className="border border-slate-600 rounded-2xl px-4 py-2">LinkedIn</a>
+            <a href="#" className="border border-slate-600 rounded-2xl px-4 py-2">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
